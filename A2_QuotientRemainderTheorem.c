@@ -53,7 +53,15 @@ int main()
 			}
 			case 2:
 			{
-				// run RecursiveQuotient()
+				int a, d, q = 0, r;
+				int* pa = &a;
+				int* pd = &d;
+				int* pq = &q;
+				int* pr = &r;
+
+				chooseNums(pa, pd);
+				RecursiveQuotient(a, d, pq, pr);
+				printf("The (quotient, remainder) is (%d, %d).\n", q, r);
 				break;
 			}
 			case 3:
@@ -91,7 +99,31 @@ void Quotient(int a, int d, int* q, int* r)
 
 void RecursiveQuotient(int a, int d, int* q, int* r)
 {
+	if (a > 0)
+	{
+		if (a < d)
+		{
+			*r = a;	// remainder is what is left
+		}
+		else
+		{
+			*q += 1;
 
+			return RecursiveQuotient(a - d, d, q, r);	// recursive step
+		}
+	}
+	else if (a < 0)
+	{
+		if (a > 0)
+		{
+			*r = a;
+		}
+		else
+		{
+			*q -= 1;
+			return RecursiveQuotient(a + d, d, q, r);
+		}
+	}
 }
 
 void chooseNums(int* a, int* d)
