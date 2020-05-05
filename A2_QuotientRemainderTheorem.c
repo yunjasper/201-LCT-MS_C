@@ -38,28 +38,35 @@ int main()
 		switch (userInput) 
 		{
 			case 1:
+			{
 				int a, d, q, r;	// initialize memory, wait for user input from next function
 				int* pa = &a;	// pointers to a, d, q, r
 				int* pd = &d;
-				int* pq = &q; 
+				int* pq = &q;
 				int* pr = &r;
 				chooseNums(pa, pd);
-				
+
 				Quotient(a, d, pq, pr);
 
-				printf("The (quotient, remainder) is (%d, %d).", q, r);
-
+				printf("The (quotient, remainder) is (%d, %d).\n\n", q, r);
+				break;
+			}
 			case 2:
+			{
 				// run RecursiveQuotient()
-
+				break;
+			}
 			case 3:
+			{
 				// run RecursiveQuotient and print the remainder
-
+				break;
+			}
 			case 4:
 				return 0;
 
 			default:
-				printf("Invalid input, please try again.");
+				printf("Invalid input, please try again.\n");
+				break;
 		}
 	}
 }
@@ -67,7 +74,19 @@ int main()
 
 void Quotient(int a, int d, int* q, int* r) 
 {
+	*r = a;	// initial remainder is the entire a
+	*q = 0;	// initial quotient is 0
 
+	while (*r >= d)
+	{
+		*r -= d;
+		*q += 1;
+	}
+	while (*r < 0)
+	{
+		*r += d;
+		*q -= 1;
+	}
 }
 
 void RecursiveQuotient(int a, int d, int* q, int* r)
@@ -83,5 +102,5 @@ void chooseNums(int* a, int* d)
 	printf("Please choose a modulo base d: ");
 	scanf("%d", d);
 
-	printf("You have chosen a = %d, and d = %d.", *a, *d);
+	printf("You have chosen a = %d, and d = %d.\n", *a, *d);
 }
