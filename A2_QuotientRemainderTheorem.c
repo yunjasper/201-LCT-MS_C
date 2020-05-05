@@ -5,7 +5,7 @@
 	Remainder Theorem from Modular Arithmetic.
 
 	Author:		Jasper Yun
-	Date:		2020-05-04
+	Date:		2020-05-05
 	Version:	1.0
 */
 
@@ -66,7 +66,15 @@ int main()
 			}
 			case 3:
 			{
-				// run RecursiveQuotient and print the remainder
+				int a, d, q = 0, r;
+				int* pa = &a;
+				int* pd = &d;
+				int* pq = &q;
+				int* pr = &r;
+
+				chooseNums(pa, pd);
+				RecursiveQuotient(a, d, pq, pr);
+				printf("The result of %d reduced modulo %d is %d.\n", a, d, r);
 				break;
 			}
 			case 4:
