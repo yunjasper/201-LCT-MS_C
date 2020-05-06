@@ -60,10 +60,36 @@ int main()
 			}
 			case 3:
 			{
+
 				break;
 			}
 			case 4:
 			{
+				// possible tests: 
+				// inverse of 3 mod 5 is 2
+				// inverse of 3 mod 7 is 5 or -2
+				// inverse of 15 mod 4 is -1 or 3
+				int a, b, d, s, t;
+
+				chooseNums(&a, &b);
+				Euclidean(a, b, &d, &s, &t);
+
+				printf("Using the Euclidean Algorithm, GCF(%d, %d) = %d = (%d) %d + (%d) %d.\n", a, b, d, s, a, t, b);
+				if (d != 1)
+				{
+					printf("Since the GCF is not 1, then %d and %d are not relatively prime.\n", a, b);
+					printf("Therefore, there is no inverse for %d modulo %d", a, b);
+				}
+				else if (s < 0)
+				{
+					printf("If you like negative inverses, then the inverse of %d modulo %d is %d.\n", a, b, s);
+					printf("Otherwise, %d is equivalent to %d mod %d.\n", s + b, s, b);
+				}
+				else
+				{
+					printf("Therefore, the inverse of %d modulo %d is %d.\n", a, b, s);
+				}
+
 				break;
 			}
 			case 5:
