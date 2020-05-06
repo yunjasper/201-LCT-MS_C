@@ -46,19 +46,25 @@ int main()
 				Euclidean(a, b, &d, &s, &t);
 
 				printf("The GCF of %d and %d is %d.\n", a, b, d);
-				printf("s: %d, and t: %d", s, t);
+				break;
 			}
 			case 2:
 			{
+				int a, b, d, s, t;
 
+				chooseNums(&a, &b);
+				Euclidean(a, b, &d, &s, &t);
+
+				printf("The GCF of %d and %d is %d = (%d) x %d + (%d) x %d.\n", a, b, d, s, a, t, b);
+				break;
 			}
 			case 3:
 			{
-
+				break;
 			}
 			case 4:
 			{
-
+				break;
 			}
 			case 5:
 				return 0;
